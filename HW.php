@@ -131,3 +131,26 @@ foreach ($arr as &$value) {
     echo  $value = $value;
 }
 }
+/* 
+5. Отсортировать массив по 'price'
+ */
+$arr = [
+'1'=> ['price' => 10, 'count' => 2],
+'2'=> ['price' => 5,'count' => 5],
+'3'=> ['price' => 8,'count' => 5],
+'4'=> ['price' => 12,'count' => 4],
+'5'=> ['price' => 8,'count' => 4],
+];
+
+function sortPrice($x, $y) {
+    if ($x['price'] < $y['price']) {
+        return true;
+    } else if ($x['price'] > $y['price']) {
+        return false;
+    } else {
+        return 0;
+    }
+
+}
+usort($arr, 'sortPrice');
+echo '<pre>' . print_r($arr, 1) . '</pre>';
