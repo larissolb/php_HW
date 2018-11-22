@@ -123,11 +123,12 @@ foreach ($arr as $value) {
 
  */
     $week = array('Воскресенье ', 'Понедельник ', 'Вторник ', 'Среда ','Четверг ', 'Пятница ', 'Суббота ');
-    foreach ($week as &$value) {
-        if($value ===  $week[(date('w'))]) {
+    $weeks = $week[date('w')];
+    foreach ($week as $value) {
+        if($value === $weeks) {
     echo '<b>'.$value.'</b>';     
 } else {
-    echo  $value = $value;
+    echo  $value;
 }
 }
 /* 
