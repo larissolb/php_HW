@@ -108,13 +108,12 @@ foreach ($pics as $pics) {
 
 
 $arr = array(3, 1, 6 , 0 , 4, 5);
-foreach ($arr as &$value) {
- $value = $value ** 2;
+foreach ($arr as $value) {
+ $sum += $value ** 2;
 	
-			
-	print_r($arr);
-	echo array_sum($arr); //87
-	
+	unset($value);			
+	var_dump(array_sum($arr));
+        var_dump($sum);
 }
 
 /* 
