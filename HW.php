@@ -1,14 +1,45 @@
 <?php
 
 /*поиск максимального значения в массиве*/
+//с сортировкой
 $arr = [23, 89, 44, 107, 67];
 rsort($arr);
 var_dump($arr[0]); //107
 
+//церез цикл for
+$arr = [23, 89, 44, 107, 67];
+$value = $arr[0];
+$count = count($arr);
+
+for($i=0; $i < $count; $i++) {
+if($value > $arr[$i]) {
+    $value = $value;        
+} else {
+    $value = $arr[$i];
+}
+}
+var_dump($value); //107
+
 /*поиск минимального значения в массиве*/
+//с сортировкой
 $arr = [23, 89, 44, 107, 67];
 sort($arr);
 var_dump($arr[0]);//23
+
+//через цикл for
+$arr = [23, 89, 44, 107, 67];
+$value = $arr[0];
+$count = count($arr);
+
+for($i=0; $i < $count; $i++) {
+if($value < $arr[$i]) {
+    $value = $value;        
+} else {
+    $value = $arr[$i];
+}
+}
+var_dump($value); //23
+
 
 /*----------до 26.11.2018---------------*/
 
