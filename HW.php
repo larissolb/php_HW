@@ -8,26 +8,25 @@
 который проверяет наличие такой же ссылки в файле,
 если не находит, то записывает ее в конец файла */
 
+<?php 
 $post = $_POST;
 $a = $post['url'];
 
-$context = file('url.txt');
-$check = in_array($a, $context);
-
 function addUrl($filename, $ref) {
+    $context = file($filename);
+    $check = in_array($ref, $context);
+    if(!$check) {
     $fp = fopen($filename, 'a+');
     fwrite($fp,"\n");
     fwrite($fp,$ref);
     fclose($fp);
+    var_dump($context);
+    }else {
+    var_dump('try again');
+    }
 }
 
-if(!$check) {
-    addUrl('url.txt',$a);
-        var_dump($context);
-   }else {
-    var_dump('try again');
-    var_dump($context);
-    }
+addUrl('url.txt', $a);
 ?>
 
 <form action="hw_0612.php" method="post">
