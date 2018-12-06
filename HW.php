@@ -43,9 +43,10 @@ var_dump($arr[0]); //107
 
 //церез цикл for
 $arr = [23, 89, 44, 107, 67];
-$value = $arr[0];
-$count = count($arr);
 
+function getMaxValue($arr) {
+    $value = $arr[0];
+    $count = count($arr);
 for($i=0; $i < $count; $i++) {
 if($value > $arr[$i]) {
     $value = $value;        
@@ -54,18 +55,23 @@ if($value > $arr[$i]) {
 }
 }
 var_dump($value); //107
+}
+getMaxValue($arr);
+
+
 
 /*поиск минимального значения в массиве*/
 //с сортировкой
-$arr = [23, 89, 44, 107, 67];
-sort($arr);
-var_dump($arr[0]);//23
+$arr1 = [23, 89, 44, 107, 67];
+sort($arr1);
+var_dump($arr1[0]);//23
 
 //через цикл for
-$arr = [23, 89, 44, 107, 67];
+$arr1 = [23, 89, 44, 107, 67];
+
+function getMinValue($arr) {
 $value = $arr[0];
 $count = count($arr);
-
 for($i=0; $i < $count; $i++) {
 if($value < $arr[$i]) {
     $value = $value;        
@@ -74,6 +80,8 @@ if($value < $arr[$i]) {
 }
 }
 var_dump($value); //23
+}
+getMinValue($arr1);
 
 
 /*----------до 26.11.2018---------------*/
