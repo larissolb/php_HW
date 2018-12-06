@@ -197,7 +197,6 @@ $arr = array(3, 1, 6 , 0 , 4, 5);
 foreach ($arr as $value) {
  $sum += $value ** 2;
 	
-	unset($value);			
 	var_dump(array_sum($arr));
         var_dump($sum);
 }
