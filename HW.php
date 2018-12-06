@@ -1,5 +1,43 @@
 <?php
 
+/*----------к 06.12.2018 (после 5 урока)---------------*/
+
+/*1. создать html форму с одним текстовым полем и кнопкой submit
+2. пользователь вводит в форму ссылку (URL адрес)
+3. написать обработчик,
+который проверяет наличие такой же ссылки в файле,
+если не находит, то записывает ее в конец файла */
+
+$post = $_POST;
+$a = $post['url'];
+
+$context = file('url.txt');
+$check = in_array($a, $context);
+
+function addUrl($filename, $ref) {
+    $fp = fopen($filename, 'a+');
+    fwrite($fp,"\n");
+    fwrite($fp,$ref);
+    fclose($fp);
+}
+
+if(!$check) {
+    addUrl('url.txt',$a);
+        var_dump($context);
+   }else {
+    var_dump('try again');
+    var_dump($context);
+    }
+?>
+
+<form action="hw_0612.php" method="post">
+    <input type="text" placeholder="input url" name="url"> 
+    <input type="submit">
+</form>
+
+<!----------к 04.12.2018--------------->
+
+<?php
 /*поиск максимального значения в массиве*/
 //с сортировкой
 $arr = [23, 89, 44, 107, 67];
