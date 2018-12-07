@@ -1,4 +1,31 @@
-/*----------к 06.12.2018 (после 5 урока)---------------*/
+<!--/*----------к 06.12.2018 (после 5 урока)---------------*/
+
+/*удалить каталог рекурсией*/
+
+<?php
+function cleanDir($path) { 
+    if(file_exists($path) && is_dir($path)) {
+        $dir = opendir($path);
+        while (false !== ($file = readdir($dir))) {
+            if ($file != '.' && $file != '..'){
+                $next = $path.'/'.$file;
+                if(is_dir($next)){
+                     cleanDir($next);
+                } else { unlink($next); }
+            }
+        }
+        closedir($dir);
+    }
+    if(file_exists($path)) {
+        rmdir($path);
+    }
+else {
+    echo "$path has cleaned";
+}
+}
+$path = "data";
+cleanDir($path);
+?>
 
 /*1. создать html форму с одним текстовым полем и кнопкой submit
 2. пользователь вводит в форму ссылку (URL адрес)
