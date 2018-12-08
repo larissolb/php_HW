@@ -8,17 +8,17 @@ foreach ($pics["picture"]["error"] as $key => $error) {
     $tmp_name = $pics["picture"]["tmp_name"][$key];
     $name = basename($pics["picture"]["name"][$key]);
     $type = finfo_file($finfo, $tmp_name);
-    var_dump($type);
+//    var_dump($type);
 
    //check size 
     if($error == UPLOAD_ERR_FORM_SIZE){
         echo "$name size is more than 50kb";
     } elseif(!in_array($type, $types)){
-        echo 'bad type. only png';
+        echo "<p>Sorry, bad type. Use only .png images</p>";
     }
     else {
         move_uploaded_file($tmp_name, "imgUsers/$name");
-        echo "$name has uploaded!";
+        echo "<p>Your pic '$name' has uploaded!</p>";
     }
 }
 finfo_close($finfo);
