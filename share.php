@@ -14,7 +14,7 @@ foreach ($pics["picture"]["error"] as $key => $error) {
     if($error == UPLOAD_ERR_FORM_SIZE){
         echo "$name size is more than 50kb";
     } elseif(!in_array($type, $types)){
-        echo "<p>Sorry, bad type. Use only .png images</p>";
+        echo "<p>Sorry, this pic '$name' has bad type. Use only .png images</p>";
     }
     else {
         move_uploaded_file($tmp_name, "imgUsers/$name");
