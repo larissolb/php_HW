@@ -20,7 +20,7 @@ $emails = [];
 }
 function addNewUser($filename, $data, $array, $item, $array1, $item1) {
     if($item === null){
-          echo "Full the form below";
+//          echo "Full the form below";
     }elseif(in_array($item, $array)){
         echo $item . " is busy";
     }elseif(in_array($item1, $array1)) {
@@ -31,6 +31,7 @@ function addNewUser($filename, $data, $array, $item, $array1, $item1) {
     fwrite($fp,$data . session_id());
     fclose($fp);
     echo "Welcome! You're with us!";
+    $_SESSION['auth'] = true;
 }
 }
     addNewUser('users.csv',$login . ";" . $email . ";". $psw . ";", $logins, $login, $emails, $email);
@@ -53,6 +54,7 @@ doRegist();
     <div id="header"> <!--header-->
         <h1 id="txt">Rainbow world</h1>
         </div> <!-- final header-->
+        <div><?php if ($_SESSION['auth']){header("Location: /share.php");exit;}?></div>
              <div class="register-window-m"> <!-- form register-->
                 <form action="register.php" method="post" name="create">
                 <fieldset id="create">

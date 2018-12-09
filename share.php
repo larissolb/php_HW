@@ -63,7 +63,7 @@ finfo_close($finfo);
                         <label><input type="radio" name='theme' value='Cities'>Cities</label>
                         <label><input type="radio" name='theme' value='Other' checked>Other</label>
                     </div> 
-                    <div class="item-mobile">
+<!--                    <div class="item-mobile">
                         <label for="themeM">What theme?</label>
                         <select id="themeM" required> 
                             <option value="Nature"> Nature</option> 
@@ -73,7 +73,7 @@ finfo_close($finfo);
                             <option value="Cities">Cities</option>
                             <option value="Other">Other</option>
                         </select> 
-                    </div>
+                    </div>-->
                     <div class="item">
                         <label for="type">What instruments did you use?</label>
                         <select id="type" required> 
@@ -106,7 +106,7 @@ finfo_close($finfo);
                     </fieldset>  
                 </form>
                                     <?php loadPics();?>
- 
+  <h2><a href="auth.php?out=true">Go out</a></h2>
        </div> <!--конец главной рамки-->
     </body>
 </html>
