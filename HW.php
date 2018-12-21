@@ -54,7 +54,7 @@ function addUrl($filename, $ref) {
 addUrl('url.txt', $a);
 ?>
 
-<form action="hw_0612.php" method="post">
+<form action="HW.php" method="post">
     <input type="text" placeholder="input url" name="url"> 
     <input type="submit">
 </form>
