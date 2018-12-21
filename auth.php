@@ -53,6 +53,7 @@ if($post['email'] !== null && $post['email'] == $key){
    if(isPresent($post['email'], $emails)){
        if(checkHashPsw($post['psw'], $psw1)){
        $_SESSION['auth'] = true;
+       include_once './share.php';
    }else {
        echo "Password is wrong";
    }}elseif($post['email'] == null) { 
@@ -90,16 +91,16 @@ if ($out == true) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div><?php if ($_SESSION['auth']){header("Location: /share.php");exit;}?></div>
+        <?php if (isset($_SESSION['auth'])): ?>
+
+        <h2><a href="auth.php?out=true">Go out</a> </h2>
+        
+            <?php else: ?>
         <div id="header"> <!--header-->
             <h1 id='txt'>Welcome to Rainbow world</h1>
         </div> <!-- final header-->
-        <?php if (isset($_SESSION['auth'])): ?>
-
-<h2><a href="auth.php?out=true">Go out</a> </h2>
-<div><?php if ($_SESSION['auth']){header("Location: /share.php");exit;}?></div>
-
         <div class="authorization"><a href="#authorization"></a> <!-- authorization -->
-            <?php else: ?>
             <form action="auth.php" method="post" name="authorization">
                 <fieldset id="authorization" class="open-window">
                     <div><input name="email"  id="email" type="email" placeholder="Your Email" required></div>

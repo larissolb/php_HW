@@ -1,4 +1,7 @@
+<?php if ($_SESSION['auth']): ?>
+
 <?php
+
 function loadPics (){
     $pics = $_FILES;   
     $types = ['image/png'];
@@ -24,15 +27,17 @@ foreach ($pics["picture"]["error"] as $key => $error) {
 finfo_close($finfo);
 
 }
+
 ?>
 
 
+ 
 
 <!DOCTYPE html>
 <!--
 Здесь пользователи будут иметь возможность загружать свои картинки
 -->
-<html>
+<html  >
     <head>
         <title>Rainbow - let's this world colour!</title>
         <meta charset="UTF-8">
@@ -46,7 +51,7 @@ finfo_close($finfo);
         <div id="header"> <!--header-->
             <h1 id='txt'>Welcome to Rainbow world</h1>
         </div> <!-- final header-->
-        
+
         <div>
                 <form action="share.php" method="post" autocomplete="on" enctype="multipart/form-data" name="Upload">
                     <fieldset class="field"> 
@@ -107,6 +112,10 @@ finfo_close($finfo);
                 </form>
                                     <?php loadPics();?>
   <h2><a href="auth.php?out=true">Go out</a></h2>
+  
        </div> <!--конец главной рамки-->
+
     </body>
 </html>
+<?php else: {header("Location: /auth.php");exit;}?>
+<?php endif; ?>
