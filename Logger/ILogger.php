@@ -18,7 +18,7 @@ class Context
     public function writeSmth(): void
     {
         echo "Context: \n";
-        $result = $this->ilogger->Write("something txt");
+        $result = $this->ilogger->write("something txt");
           echo "\n" . $result. "\n";
     }
 }
@@ -26,13 +26,13 @@ class Context
 
 interface ILogger
 {
-    public function Write($text);
+    public function write($text);
     
 }
 
 class EchoLogger implements ILogger
 {
-    public function Write($text)
+    public function write($text)
     {
         return "You see this \n '$text' \n on your screen";
     }
@@ -40,7 +40,7 @@ class EchoLogger implements ILogger
 
 class FileLogger implements ILogger
 {
-    public function Write($text)
+    public function write($text)
     {
     $fp = fopen('file.txt', 'a+');
     fwrite($fp,$text . "\n");
@@ -51,7 +51,7 @@ class FileLogger implements ILogger
 
 class TimeFileLogger implements ILogger
 {
-    public function Write($text)
+    public function write($text)
     {
     $time = date("d/m/Y H:i\n"); 
     $fp = fopen('file.txt', 'a+');
