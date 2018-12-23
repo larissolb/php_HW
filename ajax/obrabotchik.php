@@ -66,7 +66,7 @@ if($post['email'] !== null && $post['email'] == $key){
    if(isPresent($post['email'], $emails)){
        if(checkHashPsw($post['psw'], $psw1)){
        $_SESSION['auth'] = true;
-       header("Location: /Authoriz_ajax/share-ajax.php");exit;
+       header("Location: /ajax/share-ajax.php");exit;
 
    }else {
        echo "Password is wrong";
@@ -74,6 +74,7 @@ if($post['email'] !== null && $post['email'] == $key){
    }else {
        echo $post['email'] . " is not exist";
    }
+   return "success";
 }
     auth(); 
 

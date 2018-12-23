@@ -11,7 +11,7 @@
         <title>Rainbow - let's this world colour!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="ajax/js/form.js"></script>
+        <script src="/ajax/js/form.js"></script>
     </head>
     <body>
         <div id="header"> <!--header-->
@@ -20,7 +20,7 @@
         <?php if (isset($_SESSION['auth'])): ?>
         <div class="authorization"><a href="#authorization"></a> <!-- authorization -->
             <?php else: ?>
-            <form action="ajax/obrabotchik.php" method="post" name="authorization">
+            <form action="/ajax/obrabotchik.php" method="post" name="authorization">
                 <fieldset id="authorization" class="open-window">
                     <div><input name="email"  id="email" type="email" placeholder="Your Email" required></div>
                     <div><input name="psw"  id="psw" type="password" placeholder="Your Password" required></div>           
